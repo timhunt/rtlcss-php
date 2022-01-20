@@ -797,6 +797,12 @@ class RTLCSSTest extends \PHPUnit_Framework_TestCase {
     public function valuesNSyntaxProvider() {
         return [
             [[
+                'should' => 'Do nothings: border-radius (1 value)',
+                'expected' => 'div { border-radius: 5px; }',
+                'input' => 'div { border-radius: 5px; }',
+                'reversable' => true
+            ]],
+            [[
                 'should' => 'Should mirror property value: border-radius (4 values)',
                 'expected' => 'div { border-radius: 40.25px 10.5px 10.75px 40.3px; }',
                 'input' => 'div { border-radius: 10.5px 40.25px 40.3px 10.75px; }',
@@ -815,25 +821,28 @@ class RTLCSSTest extends \PHPUnit_Framework_TestCase {
                 'reversable' => true
             ]],
             [[
+                'should' => 'Do nothings: border-radius (1 value - double)',
+                'expected' => 'div { border-radius: 5px / 7px; }',
+                'input' => 'div { border-radius: 5px / 7px; }',
+                'reversable' => true
+            ]],
+            [[
                 'should' => 'Should mirror property value: border-radius (4 values - double)',
                 'expected' => 'div { border-radius: 40.25px 10.75px .5px 40.75px / .4em 1em 1em 4.5em; }',
                 'input' => 'div { border-radius: 10.75px 40.25px 40.75px .5px / 1em .4em 4.5em 1em; }',
                 'reversable' => true,
-                'skip' => true
             ]],
             [[
                 'should' => 'Should mirror property value: border-radius (3 values - double)',
                 'expected' => 'div { border-radius: .40px 10.5px .40px 40px / 4em 1em 4em 3em; }',
                 'input' => 'div { border-radius: 10.5px .40px 40px / 1em 4em 3em; }',
                 'reversable' => false,
-                'skip' => true
             ]],
             [[
                 'should' => 'Should mirror property value: border-radius (2 values- double)',
                 'expected' => 'div { border-radius: 40px 10px / 2.5em .75em; }',
                 'input' => 'div { border-radius: 10px 40px / .75em 2.5em; }',
                 'reversable' => true,
-                'skip' => true
             ]],
             [[
                 'should' => 'Should mirror property value: border-width',
